@@ -1,0 +1,23 @@
+{
+  "name": "employee_summary",
+  "version": "1.0.0",
+  "description": "Employee Summary assignment",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matt-c-knight/Employee_Summary.git"
+  },
+  "author": "matt knight",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matt-c-knight/Employee_Summary/issues"
+  },
+  "homepage": "https://github.com/matt-c-knight/Employee_Summary#readme",
+  "dependencies": {
+    "inquirer": "^7.0.1",
+    "jest": "^24.9.0"
+  }
+}
