@@ -27,6 +27,34 @@ inquirer
     })
 
 }
+function promptEngineer() {
+    const questions = [
+    {
+    message: "What is your Github username?",
+    name: "github"},    
+    {
+    message: "What is your name?",   
+    name: "name"},
+    {
+    message: "What is your id?",
+    name: "id"},
+    {
+    message: "What is your title?",
+    name: "title"},
+   
+    ]
+
+inquirer
+    .prompt(questions).then(({github,name,id,title}) => {
+        // console.log(name);
+        // console.log(id);
+        // console.log(title);
+        const engineerOne = new Engineer(github, name, id, title);
+        console.log(engineerOne.github);
+    })
+
+}
+
 
 function determineEmployee() {
     const question = [{
@@ -39,6 +67,8 @@ function determineEmployee() {
        userAnswer = userAnswer.toString();
         if(userAnswer === "employee") {
             promptEmployee()
+        } else if (userAnswer === "engineer") {
+            promptEngineer()
         }
     })
 }
