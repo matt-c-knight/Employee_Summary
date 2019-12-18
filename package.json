@@ -1,23 +1,29 @@
 {
-  "name": "employee_summary",
+  "name": "unit10hw",
   "version": "1.0.0",
-  "description": "Employee Summary assignment",
+  "description": "OOP and testing for week 10 homework",
   "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matt-c-knight/Employee_Summary.git"
+    "url": "git+https://github.com/stevetrilogy/unit10hw.git"
   },
-  "author": "matt knight",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/matt-c-knight/Employee_Summary/issues"
+    "url": "https://github.com/stevetrilogy/unit10hw/issues"
   },
-  "homepage": "https://github.com/matt-c-knight/Employee_Summary#readme",
+  "homepage": "https://github.com/stevetrilogy/unit10hw#readme",
   "dependencies": {
-    "inquirer": "^7.0.1",
-    "jest": "^24.9.0"
+    "inquirer": "^6.3.1"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
   }
 }

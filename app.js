@@ -80,18 +80,13 @@ function promptManager() {
         {
         message: "What is your title?",
         name: "title"},
-        {
-        message: "What is your role?",
-        name: "role"
-        }
-       
         ]
         inquirer
-    .prompt(questions).then(({officenumber,name,id,title,role}) => {
+    .prompt(questions).then(({officenumber,name,id,title}) => {
         // console.log(name);
         // console.log(id);
         // console.log(title);
-        manager = new Manager(officenumber, name, id, title, role);
+        manager = new Manager(officenumber, name, id, title);
         
         // buildProfile(engineer);
         determineEmployee();
@@ -111,19 +106,14 @@ function promptIntern() {
         name: "id"},
         {
         message: "What is your title?",
-        name: "title"},
-        {
-        message: "What is your role?",
-        name: "role"
-        }
-       
+        name: "title"}
         ]
         inquirer
-    .prompt(questions).then(({school,name,id,title,role}) => {
+    .prompt(questions).then(({school,name,id,title}) => {
         // console.log(name);
         // console.log(id);
         // console.log(title);
-        intern = new Intern(school, name, id, title, role);
+        intern = new Intern(school, name, id, title);
         
         // buildProfile(engineer);
         determineEmployee();
@@ -141,7 +131,7 @@ function buildProfile(user1, user2, user3, user4) {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-        <!-- <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-md-6">
                         <div class="card" style="width: 18rem;">
@@ -205,7 +195,7 @@ function buildProfile(user1, user2, user3, user4) {
                 </div>
     
               
-        </div> -->
+        </div> 
         
     </body>
     </html>`,
