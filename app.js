@@ -6,6 +6,8 @@ const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 var employee;
 var engineer;
+var manager;
+var intern;
 
 function promptEmployee() {
     const questions = [{
@@ -16,16 +18,18 @@ function promptEmployee() {
     name: "id"},
     {
     message: "What is your title?",
-    name: "title"
-    }
+    name: "title"},
+    {
+    message: "What is your email?",
+    name: "email"}
     ]
 
 inquirer
-    .prompt(questions).then(({name,id,title}) => {
+    .prompt(questions).then(({name,id,title,email}) => {
         // console.log(name);
         // console.log(id);
         // console.log(title);
-        employee = new Employee(name, id, title);
+        employee = new Employee(name, id, title, email);
         
         // buildProfile(employee);
         determineEmployee();
@@ -46,16 +50,15 @@ function promptEngineer() {
     name: "id"},
     {
     message: "What is your title?",
-    name: "title"},
-   
+    name: "title"} 
     ]
 
 inquirer
-    .prompt(questions).then(({github,name,id,title}) => {
+    .prompt(questions).then(({github,name,id,title,email}) => {
         // console.log(name);
         // console.log(id);
         // console.log(title);
-        engineer = new Engineer(github, name, id, title);
+        engineer = new Engineer(github, name, id, title, email);
         
         // buildProfile(engineer);
         determineEmployee();
@@ -63,8 +66,71 @@ inquirer
     })
 
 }
-
-function buildProfile(user1, user2) {
+function promptManager() {
+    const questions = [
+        {
+        message: "What is your office number?",
+        name: "officenumber"},    
+        {
+        message: "What is your name?",   
+        name: "name"},
+        {
+        message: "What is your id?",
+        name: "id"},
+        {
+        message: "What is your title?",
+        name: "title"},
+        {
+        message: "What is your role?",
+        name: "role"
+        }
+       
+        ]
+        inquirer
+    .prompt(questions).then(({officenumber,name,id,title,role}) => {
+        // console.log(name);
+        // console.log(id);
+        // console.log(title);
+        manager = new Manager(officenumber, name, id, title, role);
+        
+        // buildProfile(engineer);
+        determineEmployee();
+        return manager;
+    })
+}
+function promptIntern() {
+    const questions = [
+        {
+        message: "What is your school?",
+        name: "school"},    
+        {
+        message: "What is your name?",   
+        name: "name"},
+        {
+        message: "What is your id?",
+        name: "id"},
+        {
+        message: "What is your title?",
+        name: "title"},
+        {
+        message: "What is your role?",
+        name: "role"
+        }
+       
+        ]
+        inquirer
+    .prompt(questions).then(({school,name,id,title,role}) => {
+        // console.log(name);
+        // console.log(id);
+        // console.log(title);
+        intern = new Intern(school, name, id, title, role);
+        
+        // buildProfile(engineer);
+        determineEmployee();
+        return intern;
+    })
+}
+function buildProfile(user1, user2, user3, user4) {
     fs.writeFile('team.html', `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -85,18 +151,22 @@ function buildProfile(user1, user2) {
                                 <ul class="list-group list-group-flush">
                                   <li class="list-group-item">${user1.id}</li>
                                   <li class="list-group-item">${user1.title}</li>
+                                  <li class="list-group-item">${user1.email}</li>
+                                  
                                 </ul>
                         </div>
                 </div>
                 <div class="col-md-6">
                         <div class="card" style="width: 18rem;">
                                 <div class="card-header">
-                                ${user1.name}
+                                ${user2.name}
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                  <li class="list-group-item">${user1.id}</li>
-                                  <li class="list-group-item">${user2.github}</li>
+                                  <li class="list-group-item">${user2.id}</li>
                                   <li class="list-group-item">${user2.title}</li>
+                                  <li class="list-group-item">${user2.email}</li>
+                                  <li class="list-group-item">${user2.role}</li>
+                                  <li class="list-group-item">${user1.github}</li>
                                 </ul>
                         </div>
                 </div>
@@ -106,24 +176,28 @@ function buildProfile(user1, user2) {
                     <div class="col-md-6">
                             <div class="card" style="width: 18rem;">
                                     <div class="card-header">
-                                      Featured
+                                    ${user3.name}
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                      <li class="list-group-item">Cras justo odio</li>
-                                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                                      <li class="list-group-item">Vestibulum at eros</li>
+                                      <li class="list-group-item">${user3.id}</li>
+                                      <li class="list-group-item">${user3.title}</li>
+                                      <li class="list-group-item">${user3.email}</li>
+                                      <li class="list-group-item">${user3.role}</li>
+                                      <li class="list-group-item">${user3.officenumber}</li>
                                     </ul>
                             </div>
                     </div>
                     <div class="col-md-6">
                             <div class="card" style="width: 18rem;">
                                     <div class="card-header">
-                                      Featured
+                                    ${user4.name}
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                      <li class="list-group-item">Cras justo odio</li>
-                                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                                      <li class="list-group-item">Vestibulum at eros</li>
+                                      <li class="list-group-item">${user4.id}</li>
+                                      <li class="list-group-item">${user4.title}</li>
+                                      <li class="list-group-item">${user4.email}</li>
+                                      <li class="list-group-item">${user4.role}</li>
+                                      <li class="list-group-item">${user4.school}</li>
                                     </ul>
                             </div>
                     </div>
@@ -161,7 +235,7 @@ function determineEmployee() {
         } else if (userAnswer === "intern") {
             promptIntern()
         } else if (userAnswer === "finished") {
-            buildProfile(employee, engineer)
+            buildProfile(employee, engineer, manager, intern)
         }    })
 }
 
