@@ -36,16 +36,19 @@ inquirer
 }
 function promptEngineer() {
     const questions = [
-    {
-    message: "What is your Github username?",
-    name: "github"},    
-    {
+   {
     message: "What is your name?",   
     name: "name"},
     {
     message: "What is your id?",
     name: "id"},
     {
+    message: "What is your email?",
+    name: "email"},
+    {
+    message: "What is your Github username?",
+    name: "github"},    
+    
     ]
 
 inquirer
@@ -64,14 +67,18 @@ inquirer
 function promptManager() {
     const questions = [
         {
-        message: "What is your office number?",
-        name: "officenumber"},    
-        {
         message: "What is your name?",   
         name: "name"},
         {
         message: "What is your id?",
         name: "id"},
+        {
+        message: "What is your email?",
+        name: "email"},
+        {
+        message: "What is your office number?",
+        name: "officenumber"},    
+        
         
         ]
         inquirer
@@ -79,7 +86,7 @@ function promptManager() {
         // console.log(name);
         // console.log(id);
         // console.log(title);
-        manager = new Manager(name, id, title, officenumber);
+        manager = new Manager(name, id, email, officenumber);
         
         // buildProfile(engineer);
         determineEmployee();
@@ -89,15 +96,17 @@ function promptManager() {
 function promptIntern() {
     const questions = [
         {
-        message: "What is your school?",
-        name: "school"},    
-        {
         message: "What is your name?",   
         name: "name"},
         {
         message: "What is your id?",
         name: "id"},
-        
+        {
+        message: "What is your email?",
+        name: "email"},
+        {
+        message: "What is your school?",
+        name: "school"},    
         ]
         inquirer
     .prompt(questions).then(({name,id,email, school}) => {
@@ -131,10 +140,8 @@ function buildProfile(user1, user2, user3, user4) {
                                 </div>
                                 <ul class="list-group list-group-flush">
                                   <li class="list-group-item">${user1.id}</li>
-                                  <li class="list-group-item">${user1.title}</li>
                                   <li class="list-group-item">${user1.email}</li>
-                                  
-                                </ul>
+                                 </ul>
                         </div>
                 </div>
                 <div class="col-md-6">
@@ -144,9 +151,7 @@ function buildProfile(user1, user2, user3, user4) {
                                 </div>
                                 <ul class="list-group list-group-flush">
                                   <li class="list-group-item">${user2.id}</li>
-                                  <li class="list-group-item">${user2.title}</li>
                                   <li class="list-group-item">${user2.email}</li>
-                                  <li class="list-group-item">${user2.role}</li>
                                   <li class="list-group-item">${user1.github}</li>
                                 </ul>
                         </div>
@@ -161,9 +166,7 @@ function buildProfile(user1, user2, user3, user4) {
                                     </div>
                                     <ul class="list-group list-group-flush">
                                       <li class="list-group-item">${user3.id}</li>
-                                      <li class="list-group-item">${user3.title}</li>
                                       <li class="list-group-item">${user3.email}</li>
-                                      <li class="list-group-item">${user3.role}</li>
                                       <li class="list-group-item">${user3.officenumber}</li>
                                     </ul>
                             </div>
@@ -175,9 +178,7 @@ function buildProfile(user1, user2, user3, user4) {
                                     </div>
                                     <ul class="list-group list-group-flush">
                                       <li class="list-group-item">${user4.id}</li>
-                                      <li class="list-group-item">${user4.title}</li>
                                       <li class="list-group-item">${user4.email}</li>
-                                      <li class="list-group-item">${user4.role}</li>
                                       <li class="list-group-item">${user4.school}</li>
                                     </ul>
                             </div>
