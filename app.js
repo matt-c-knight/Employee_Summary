@@ -17,19 +17,16 @@ function promptEmployee() {
     message: "What is your id?",
     name: "id"},
     {
-    message: "What is your title?",
-    name: "title"},
-    {
     message: "What is your email?",
     name: "email"}
     ]
 
 inquirer
-    .prompt(questions).then(({name,id,title,email}) => {
+    .prompt(questions).then(({name,id,email}) => {
         // console.log(name);
         // console.log(id);
         // console.log(title);
-        employee = new Employee(name, id, title, email);
+        employee = new Employee(name, id, email);
         
         // buildProfile(employee);
         determineEmployee();
@@ -49,16 +46,14 @@ function promptEngineer() {
     message: "What is your id?",
     name: "id"},
     {
-    message: "What is your title?",
-    name: "title"} 
     ]
 
 inquirer
-    .prompt(questions).then(({github,name,id,title,email}) => {
+    .prompt(questions).then(({name,id,email, github}) => {
         // console.log(name);
         // console.log(id);
         // console.log(title);
-        engineer = new Engineer(github, name, id, title, email);
+        engineer = new Engineer(name, id, email, github);
         
         // buildProfile(engineer);
         determineEmployee();
@@ -77,16 +72,14 @@ function promptManager() {
         {
         message: "What is your id?",
         name: "id"},
-        {
-        message: "What is your title?",
-        name: "title"},
+        
         ]
         inquirer
-    .prompt(questions).then(({officenumber,name,id,title}) => {
+    .prompt(questions).then(({name,id, email, officenumber}) => {
         // console.log(name);
         // console.log(id);
         // console.log(title);
-        manager = new Manager(officenumber, name, id, title);
+        manager = new Manager(name, id, title, officenumber);
         
         // buildProfile(engineer);
         determineEmployee();
@@ -104,16 +97,14 @@ function promptIntern() {
         {
         message: "What is your id?",
         name: "id"},
-        {
-        message: "What is your title?",
-        name: "title"}
+        
         ]
         inquirer
-    .prompt(questions).then(({school,name,id,title}) => {
+    .prompt(questions).then(({name,id,email, school}) => {
         // console.log(name);
         // console.log(id);
         // console.log(title);
-        intern = new Intern(school, name, id, title);
+        intern = new Intern(name, id, email, school);
         
         // buildProfile(engineer);
         determineEmployee();
