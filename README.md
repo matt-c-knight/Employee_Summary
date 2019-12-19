@@ -14,6 +14,6 @@ When user types "finished", an html file is written using template literals.
 Classes are tested.
 
 
-<img src="img1.png" width="200px">
-<img src="img2.png" width="200px">
-<img src="img3.png" width="200px">
+<img src="terminal.png" width="200px">
+<img src="html.png" width="200px">
+<img src="browser.png" width="200px">
